@@ -1,10 +1,10 @@
 <?php
 
-namespace Module\Slider\Http\Requests;
+namespace Module\Slide\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SliderItemRequest extends FormRequest
+class SlideItemRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,14 @@ class SliderItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'gallery' => 'required',
+            'image' => 'required',
         ];
     }
 
     public function attributes()
     {
         return [
-            'gallery' => __('slider::slider-item.image'),
+            'image' => __('Slide::Slide-item.image'),
         ];
     }
 }

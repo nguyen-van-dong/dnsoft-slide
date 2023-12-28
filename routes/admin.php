@@ -1,53 +1,54 @@
 <?php
 
-use Module\Slider\Http\Controllers\Admin\SliderController;
-use Module\Slider\Http\Controllers\Admin\SliderItemController;
+use Illuminate\Support\Facades\Route;
+use Module\Slide\Http\Controllers\Admin\SlideController;
+use Module\Slide\Http\Controllers\Admin\SlideItemController;
 
-Route::prefix('slider')->group(function () {
-    Route::prefix('')->group(function () {
-        Route::get('', [SliderController::class, 'index'])
-            ->name('slider.admin.slider.index')
-            ->middleware('admin.can:slider.admin.slider.index');
+Route::prefix('slide')->group(function () {
+  Route::prefix('')->group(function () {
+    Route::get('', [SlideController::class, 'index'])
+      ->name('slide.admin.slide.index')
+      ->middleware('admin.can:slide.admin.slide.index');
 
-        Route::get('create', [SliderController::class, 'create'])
-            ->name('slider.admin.slider.create')
-            ->middleware('admin.can:slider.admin.slider.create');
+    Route::get('create', [SlideController::class, 'create'])
+      ->name('slide.admin.slide.create')
+      ->middleware('admin.can:slide.admin.slide.create');
 
-        Route::post('/', [SliderController::class, 'store'])
-            ->name('slider.admin.slider.store')
-            ->middleware('admin.can:slider.admin.slider.create');
+    Route::post('/', [SlideController::class, 'store'])
+      ->name('slide.admin.slide.store')
+      ->middleware('admin.can:slide.admin.slide.create');
 
-        Route::get('{id}/edit', [SliderController::class, 'edit'])
-            ->name('slider.admin.slider.edit')
-            ->middleware('admin.can:slider.admin.slider.edit');
+    Route::get('{id}/edit', [SlideController::class, 'edit'])
+      ->name('slide.admin.slide.edit')
+      ->middleware('admin.can:slide.admin.slide.edit');
 
-        Route::put('{id}', [SliderController::class, 'update'])
-            ->name('slider.admin.slider.update')
-            ->middleware('admin.can:slider.admin.slider.edit');
+    Route::put('{id}', [SlideController::class, 'update'])
+      ->name('slide.admin.slide.update')
+      ->middleware('admin.can:slide.admin.slide.edit');
 
-        Route::delete('{id}', [SliderController::class, 'destroy'])
-            ->name('slider.admin.slider.destroy')
-            ->middleware('admin.can:slider.admin.slider.destroy');
+    Route::delete('{id}', [SlideController::class, 'destroy'])
+      ->name('slide.admin.slide.destroy')
+      ->middleware('admin.can:slide.admin.slide.destroy');
 
-        Route::get('{slider_id}/builder', [SliderItemController::class, 'index'])
-            ->name('slider.admin.slider-item.index')
-            ->middleware('admin.can:slider.admin.slider.edit');
-    });
+    Route::get('{slide_id}/builder', [SlideItemController::class, 'index'])
+      ->name('slide.admin.slide-item.index')
+      ->middleware('admin.can:slide.admin.slide.edit');
+  });
 
-    Route::prefix('slider-item')->middleware('admin.can:slider.admin.slider.edit')->group(function () {
-        Route::get('create', [SliderItemController::class, 'create'])
-            ->name('slider.admin.slider-item.create');
+  Route::prefix('slide-item')->middleware('admin.can:slide.admin.slide.edit')->group(function () {
+    Route::get('create', [SlideItemController::class, 'create'])
+      ->name('slide.admin.slide-item.create');
 
-        Route::post('/', [SliderItemController::class, 'store'])
-            ->name('slider.admin.slider-item.store');
+    Route::post('/', [SlideItemController::class, 'store'])
+      ->name('slide.admin.slide-item.store');
 
-        Route::get('{id}/edit', [SliderItemController::class, 'edit'])
-            ->name('slider.admin.slider-item.edit');
+    Route::get('{id}/edit', [SlideItemController::class, 'edit'])
+      ->name('slide.admin.slide-item.edit');
 
-        Route::put('{id}', [SliderItemController::class, 'update'])
-            ->name('slider.admin.slider-item.update');
+    Route::put('{id}', [SlideItemController::class, 'update'])
+      ->name('slide.admin.slide-item.update');
 
-        Route::delete('{id}', [SliderItemController::class, 'destroy'])
-            ->name('slider.admin.slider-item.destroy');
-    });
+    Route::delete('{id}', [SlideItemController::class, 'destroy'])
+      ->name('slide.admin.slide-item.destroy');
+  });
 });

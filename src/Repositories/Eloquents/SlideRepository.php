@@ -1,12 +1,12 @@
 <?php
 
-namespace Module\Slider\Repositories\Eloquents;
+namespace Module\Slide\Repositories\Eloquents;
 
 use DnSoft\Core\Repositories\BaseRepository;
 use Illuminate\Support\Facades\Auth;
-use Module\Slider\Repositories\SliderRepositoryInterface;
+use Module\Slide\Repositories\SlideRepositoryInterface;
 
-class SliderRepository extends BaseRepository implements SliderRepositoryInterface
+class SlideRepository extends BaseRepository implements SlideRepositoryInterface
 {
     public function findBySlug($slug)
     {

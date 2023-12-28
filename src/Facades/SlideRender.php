@@ -1,13 +1,13 @@
 <?php
 
-namespace Module\Slider\Facades;
+namespace Module\Slide\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class SliderRender extends Facade
+class SlideRender extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return 'slider.render';
+        return 'Slide.render';
     }
 }

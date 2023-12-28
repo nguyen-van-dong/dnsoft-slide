@@ -1,0 +1,5 @@
+@input(['name' => 'name', 'label' => __('slide::slide.name')])
+@slug(['name' => 'slug', 'label' => __('slide::slide.slug'), 'slugFrom' => '#name', 'field_slug' => 'name'])
+@textarea(['name' => 'description', 'label' => __('slide::slide.description')])
+@select(['name' => 'layout', 'label' => __('slide::slide.layout'), 'options' => get_slide_layout_options()])
+@checkbox(['name' => 'is_active', 'label' => __('slide::slide.is_active')])

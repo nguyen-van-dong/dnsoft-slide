@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSliderSliderItemsTable extends Migration
+class CreateSlideSlideItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateSliderSliderItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('slider__slider_items', function (Blueprint $table) {
+        Schema::create('slide__slide_items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('slider_id');
+            $table->unsignedBigInteger('slide_id');
             $table->{database_jsonable()}('name')->nullable();
             $table->{database_jsonable()}('description')->nullable();
             $table->{database_jsonable()}('content')->nullable();
@@ -25,7 +25,7 @@ class CreateSliderSliderItemsTable extends Migration
             $table->unsignedSmallInteger('sort_order')->nullable();
             $table->timestamps();
 
-            $table->foreign('slider_id')->references('id')->on('slider__sliders')->onDelete('cascade');
+            $table->foreign('slide_id')->references('id')->on('slide__slides')->onDelete('cascade');
         });
     }
 
@@ -36,6 +36,6 @@ class CreateSliderSliderItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slider__slider_items');
+        Schema::dropIfExists('slide__slide_items');
     }
 }

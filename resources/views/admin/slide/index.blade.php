@@ -1,6 +1,6 @@
 @extends('core::admin.master')
 
-@section('meta_title', __('slider::slider.index.page_title'))
+@section('meta_title', __('slide::slide.index.page_title'))
 
 @section('breadcrumbs')
 <div class="row">
@@ -9,11 +9,11 @@
       <div class="page-title-right">
         <ol class="breadcrumb m-0">
           <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ trans('dashboard::message.index.breadcrumb') }}</a></li>
-          <li class="breadcrumb-item active">{{ trans('slider::slider.index.breadcrumb') }}</li>
+          <li class="breadcrumb-item active">{{ trans('slide::slide.index.breadcrumb') }}</li>
         </ol>
       </div>
       <h4 class="page-title">
-        {{ __('slider::slider.index.page_title') }}
+        {{ __('slide::slide.index.page_title') }}
       </h4>
     </div>
   </div>
@@ -28,7 +28,7 @@
         <div class="row">
           <div class="col-12 text-sm-center form-inline">
             <div class="form-group mr-2">
-              <a id="demo-btn-addrow" class="btn btn-primary" href="{{ route('slider.admin.slider.create') }}"><em class="mdi mdi-plus-circle mr-2"></em> Add New Slide</a>
+              <a id="demo-btn-addrow" class="btn btn-primary" href="{{ route('slide.admin.slide.create') }}"><em class="mdi mdi-plus-circle mr-2"></em> Add New Slide</a>
             </div>
             <form action="">
               <div class="form-group">
@@ -46,11 +46,11 @@
           <thead>
             <tr>
               <th>{{ __('ID') }}</th>
-              <th>{{ __('slider::slider.name') }}</th>
-              <th>{{ __('slider::slider.slug') }}</th>
-              <th>{{ __('slider::slider.layout') }}</th>
-              <th>{{ __('slider::slider.is_active') }}</th>
-              <th>{{ __('slider::slider.created_at') }}</th>
+              <th>{{ __('slide::slide.name') }}</th>
+              <th>{{ __('slide::slide.slug') }}</th>
+              <th>{{ __('slide::slide.layout') }}</th>
+              <th>{{ __('slide::slide.is_active') }}</th>
+              <th>{{ __('slide::slide.created_at') }}</th>
               <th></th>
             </tr>
           </thead>
@@ -59,14 +59,14 @@
             <tr>
               <td>{{ $item->id }}</td>
               <td>
-                <a href="{{ route('slider.admin.slider.edit', $item->id) }}">
+                <a href="{{ route('slide.admin.slide.edit', $item->id) }}">
                   {{ $item->name }}
                 </a>
               </td>
               <td>
-                <code>{<span>!!</span> \SliderRender::render('{{ $item->slug }}') !!}</code>
+                <code>{<span>!!</span> \SlideRender::render('{{ $item->slug }}') !!}</code>
               </td>
-              <td>{{ get_slider_layout_label($item->layout) }}</td>
+              <td>{{ get_slide_layout_label($item->layout) }}</td>
               <td>
                 @if($item->is_active)
                 <i class="fa fa-check text-success"></i>
@@ -77,20 +77,20 @@
               <td>{{ $item->created_at }}</td>
 
               <td class="text-right">
-                @admincan('slider.admin.slider.edit')
-                <a href="{{ route('slider.admin.slider-item.index', $item->id) }}" class="btn btn-info-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid" title="{{ trans('slider::slider-item.builder') }}">
+                @admincan('slide.admin.slide.edit')
+                <a href="{{ route('slide.admin.slide-item.index', $item->id) }}" class="btn btn-info-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid" title="{{ trans('slide::slide-item.builder') }}">
                   <i class="fas fa-drafting-compass" style="font-size: 15px; margin-left: -5px; margin-top: 5px"></i>
                 </a>
                 @endadmincan
 
-                @admincan('slider.admin.slider.edit')
-                <a href="{{ route('slider.admin.slider.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
+                @admincan('slide.admin.slide.edit')
+                <a href="{{ route('slide.admin.slide.edit', $item->id) }}" class="btn btn-success-soft btn-sm mr-1" style="background-color: rgb(211 250 255); color: #0fac04; width: 32px;border-color: rgb(167 255 247); border: 1px solid">
                   <i class="fas fa-pencil-alt" style="font-size: 15px; margin-left: -5px; margin-top: 5px"></i>
                 </a>
                 @endadmincan
 
-                @admincan('slider.admin.slider.destroy')
-                <x-button-delete-v1 url="{{ route('slider.admin.slider.destroy', $item->id) }}"/>
+                @admincan('slide.admin.slide.destroy')
+                <x-button-delete-v1 url="{{ route('slide.admin.slide.destroy', $item->id) }}"/>
                 @endadmincan
               </td>
             </tr>

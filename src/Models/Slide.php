@@ -1,18 +1,18 @@
 <?php
 
-namespace Module\Slider\Models;
+namespace Module\Slide\Models;
 
 use DnSoft\Core\Traits\CacheableTrait;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Slider extends Model
+class Slide extends Model
 {
     // use LogsActivity;
 
-    protected static $logName = 'slider_slider';
+    protected static $logName = 'Slide_Slide';
 
-    protected $table = 'slider__sliders';
+    protected $table = 'slide__slides';
 
     use CacheableTrait;
 
@@ -34,14 +34,14 @@ class Slider extends Model
         return $this->morphTo();
     }
 
-    public function sliderItems()
+    public function slideItems()
     {
-        return $this->hasMany(SliderItem::class);
+        return $this->hasMany(SlideItem::class);
     }
 
     public function getLayoutAttribute($value)
     {
-        return $value ?: config('slider.default');
+        return $value ?: config('slide.default');
     }
 
 }

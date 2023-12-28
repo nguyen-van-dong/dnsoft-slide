@@ -1,10 +1,10 @@
 <?php
 
-namespace Module\Slider\Http\Requests;
+namespace Module\Slide\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class SliderRequest extends FormRequest
+class SlideRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,15 +25,15 @@ class SliderRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'slug' => 'required|unique:slider__sliders,slug,'.$this->route('id'),
+            'slug' => 'required|unique:Slide__Slides,slug,'.$this->route('id'),
         ];
     }
 
     public function attributes()
     {
         return [
-            'name'  => __('slider::slider.name'),
-            'slug'  => __('slider::slider.slug'),
+            'name'  => __('Slide::Slide.name'),
+            'slug'  => __('Slide::Slide.slug'),
         ];
     }
 }

@@ -1,8 +1,8 @@
 {
-    "name": "Slider",
-    "description": "Module Slider",
-    "namespace": "Module\\Slider\\",
+    "name": "",
+    "description": "Module Slide",
+    "namespace": "Module\\Slide\\",
     "providers": [
-        "Module\\Slider\\SliderServiceProvider"
+        "Module\\Slide\\SlideServiceProvider"
     ]
 }

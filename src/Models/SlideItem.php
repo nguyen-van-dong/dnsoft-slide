@@ -1,32 +1,31 @@
 <?php
 
-namespace Module\Slider\Models;
+namespace Module\Slide\Models;
 
 use DnSoft\Core\Traits\CacheableTrait;
 use DnSoft\Core\Traits\TranslatableTrait;
 use DnSoft\Media\Traits\HasMediaTraitV3;
 use Illuminate\Database\Eloquent\Model;
 
-class SliderItem extends Model
+class SlideItem extends Model
 {
   use HasMediaTraitV3;
   use CacheableTrait;
   use TranslatableTrait;
-  // use LogsActivity;
 
-  protected static $logName = 'slider_slider-item';
+  protected static $logName = 'Slide_Slide-item';
 
-  protected $table = 'slider__slider_items';
+  protected $table = 'slide__slide_items';
 
   protected $fillable = [
-    'slider_id',
+    'slide_id',
     'name',
     'description',
     'content',
     'attributes',
     'is_active',
     'sort_order',
-    'gallery',
+    'image',
     'link',
   ];
 
@@ -41,19 +40,14 @@ class SliderItem extends Model
     'is_active' => 'boolean',
   ];
 
-  public function slider()
+  public function slide()
   {
-    return $this->belongsTo(Slider::class);
+    return $this->belongsTo(Slide::class);
   }
 
-  public function setGalleryAttribute($value)
+  public function setImageAttribute($value)
   {
-    $this->mediaAttributes['gallery'] = $value;
-  }
-
-  public function getGalleryAttribute()
-  {
-    return $this->getGallery($this->getMediaConversion());
+    $this->mediaAttributes['image'] = $value;
   }
 
   public function getImageAttribute()
@@ -67,6 +61,6 @@ class SliderItem extends Model
    */
   public function getMediaConversion(): string
   {
-    return 'gallery';
+    return 'image';
   }
 }

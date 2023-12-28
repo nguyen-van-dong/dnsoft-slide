@@ -1,6 +1,6 @@
 @extends('core::admin.master')
 
-@section('meta_title', __('slider::slider.create.page_title'))
+@section('meta_title', __('slide::slide.create.page_title'))
 
 @section('breadcrumbs')
 <div class="row">
@@ -9,12 +9,12 @@
       <div class="page-title-right">
         <ol class="breadcrumb m-0">
           <li class="breadcrumb-item"><a href="{{ route('admin.dashboard.index') }}">{{ trans('dashboard::message.index.breadcrumb') }}</a></li>
-          <li class="breadcrumb-item"><a href="{{ route('slider.admin.slider.index') }}">{{ trans('slider::slider.index.breadcrumb') }}</a></li>
-          <li class="breadcrumb-item active">{{ trans('slider::slider.create.breadcrumb') }}</li>
+          <li class="breadcrumb-item"><a href="{{ route('slide.admin.slide.index') }}">{{ trans('slide::slide.index.breadcrumb') }}</a></li>
+          <li class="breadcrumb-item active">{{ trans('slide::slide.create.breadcrumb') }}</li>
         </ol>
       </div>
       <h4 class="page-title">
-        {{ __('slider::slider.create.page_title') }}
+        {{ __('slide::slide.create.page_title') }}
       </h4>
     </div>
   </div>
@@ -22,7 +22,7 @@
 @endsection
 
 @section('content')
-<form action="{{ route('slider.admin.slider.store') }}" method="POST">
+<form action="{{ route('slide.admin.slide.store') }}" method="POST">
   @csrf
 
   <div class="card mb-4">
@@ -30,7 +30,7 @@
       <div class="d-flex justify-content-between align-items-center">
         <div>
           <h4 class="fs-17 font-weight-600 mb-2">
-            {{ __('slider::slider.create.page_title') }}
+            {{ __('slide::slide.create.page_title') }}
           </h4>
         </div>
         <div class="text-right">
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="card-body">
-      @include('slider::admin.slider._fields', ['item' => $item])
+      @include('slide::admin.slide._fields', ['item' => $item])
     </div>
     <div class="card-footer text-right">
       <div class="btn-group">

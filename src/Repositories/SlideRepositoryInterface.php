@@ -1,10 +1,10 @@
 <?php
 
-namespace Module\Slider\Repositories;
+namespace Module\Slide\Repositories;
 
 use DnSoft\Core\Repositories\BaseRepositoryInterface;
 
-interface SliderRepositoryInterface extends BaseRepositoryInterface
+interface SlideRepositoryInterface extends BaseRepositoryInterface
 {
     public function findBySlug($slug);
 
